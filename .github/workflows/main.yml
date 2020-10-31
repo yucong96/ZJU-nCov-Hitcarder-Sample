@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Working
-        uses: Long0x0/zju-ncov-hitcarder-action@0.0.1
+        uses: Long0x0/zju-ncov-hitcarder@0.0.1
         with:
           username: ${{ secrets.ZJU_USERNAME }}
           password: ${{ secrets.ZJU_PASSWORD }}
