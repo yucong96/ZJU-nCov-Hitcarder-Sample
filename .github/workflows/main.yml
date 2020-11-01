@@ -21,12 +21,12 @@ jobs:
             password: ZJU_PASSWORD2
             dingtalk_token: ''
             pushplus_token: PUSHPLUS_TOKEN
-            serverchan_key: ''
+            serverchan_key: SERVERCHAN_KEY
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Working
-        uses: Long0x0/zju-ncov-hitcarder@0.0.3
+        uses: Long0x0/zju-ncov-hitcarder@0.0.4
         with:
           username: ${{ secrets[matrix.username] }}
           password: ${{ secrets[matrix.password] }}
