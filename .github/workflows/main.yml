@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Working
-        uses: Long0x0/zju-ncov-hitcarder@latest
+        uses: Long0x0/zju-ncov-hitcarder@master
         with:
           username: ${{ secrets[matrix.username] }}
           password: ${{ secrets[matrix.password] }}
