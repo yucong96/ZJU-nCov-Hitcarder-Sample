@@ -7,29 +7,32 @@ on:
 
 jobs:
   main:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
+        users: [user1, user2]
         include:
-          - username: ${{ secrets.ZJU_USERNAME }}
-            password: ${{ secrets.ZJU_PASSWORD }}
-            dingtalk_token: ${{ secrets.DINGTALK_TOKEN }}
-            # pushplus_token: ${{ secrets.PUSHPLUS_TOKEN }}
-            # serverchan_key: ${{ secrets.SERVERCHAN_KEY }}
-          - username: ${{ secrets.ZJU_USERNAME }}
-            password: ${{ secrets.ZJU_PASSWORD }}
-            # dingtalk_token: ${{ secrets.DINGTALK_TOKEN }}
-            pushplus_token: ${{ secrets.PUSHPLUS_TOKEN }}
-            # serverchan_key: ${{ secrets.SERVERCHAN_KEY }}
-    runs-on: ubuntu-latest
+          - org: user1
+            username: ZJU_USERNAME
+            password: ZJU_PASSWORD
+            dingtalk_token: DINGTALK_TOKEN
+            # pushplus_token: PUSHPLUS_TOKEN
+            # serverchan_key: SERVERCHAN_KEY
+          - org: user2
+            username: ZJU_USERNAME
+            password: ZJU_PASSWORD
+            # dingtalk_token: DINGTALK_TOKEN
+            pushplus_token: PUSHPLUS_TOKEN
+            # serverchan_key: SERVERCHAN_KEY
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Working
         uses: Long0x0/zju-ncov-hitcarder@0.0.2
         with:
-          username: ${{ matrix.username }}
-          password: ${{ matrix.password }}
-          dingtalk_token: ${{ matrix.dingtalk_token }}
-          pushplus_token: ${{ matrix.pushplus_token }}
-          serverchan_key: ${{ matrix.serverchan_key }}
+          username: ${{ secrets[matrix.username] }}
+          password: ${{ secrets[matrix.password] }}
+          dingtalk_token: ${{ secrets[matrix.dingtalk_token] }}
+          pushplus_token: ${{ secrets[matrix.pushplus_token] }}
+          serverchan_key: ${{ secrets[matrix.serverchan_key] }}
