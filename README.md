@@ -53,10 +53,6 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
       - 在github项目的 Settings-Secrets 中中添加`DINGTALK_TOKEN`，内容为刚才复制的Webhook中 `access_token=` 后面的内容。
 
-      - 在 .github\workflows\main.yml 中将下面一行取消注释（前面的# 去掉）：
-         ```yml
-                 # DINGTALK_TOKEN: ${{ secrets.DINGTALK_TOKEN }}
-         ```
    </details>
 
 
@@ -71,10 +67,6 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
       - 在github项目的 Settings-Secrets 中中添加`SERVERCHAN_KEY`，内容为刚才复制的SCKEY。
 
-      - 在 .github\workflows\main.yml 中将下面一行取消注释（前面的# 去掉）：
-         ```yml
-                 # SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
-         ```
    </details>
 
 
@@ -87,16 +79,31 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
       - 在github项目的 Settings-Secrets 中中添加`PUSHPLUS_TOKEN`，内容为刚才复制的token。
 
-      - 在 .github\workflows\main.yml 中将下面一行取消注释（前面的# 去掉）：
-         ```yml
-                 # PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-         ```
+
    </details>
 
 
-5. 测试
+5. 配置多人打卡
+
+   可选，在 .github\workflows\main.yml 中添加一组，自行添加对应的Secrets。
+
+   ```yml
+      - username: ZJU_USERNAME
+        password: ZJU_PASSWORD
+        dingtalk_token: DINGTALK_TOKEN
+        pushplus_token: PUSHPLUS_TOKEN
+        serverchan_key: SERVERCHAN_KEY
+      - username: ZJU_USERNAME2
+        password: ZJU_PASSWORD2
+        dingtalk_token: DINGTALK_TOKEN2
+        pushplus_token: PUSHPLUS_TOKEN2
+        serverchan_key: SERVERCHAN_KEY2
+   ```
+
+
+6. 测试
    
-   Actions - ZJU-nCov-Hitcarder - Run workflow 运行测试。如果打卡成功，你将收到“打卡成功”的钉钉/微信消息，如果打卡失败或者今日已打卡，你将收到“打卡失败”。
+   Actions - ZJU-nCov-Hitcarder-Sample - Run workflow 运行测试。如果打卡成功，你将收到“打卡成功”的钉钉/微信消息，如果打卡失败或者今日已打卡，你将收到“打卡失败”。
 
    ![](docs/manual_run.png)
 
