@@ -17,7 +17,7 @@ forked from [Tishacy/ZJU-nCov-Hitcarder](https://github.com/Tishacy/ZJU-nCov-Hit
 
 ## Usage
 
-1. fork本项~~将 .github\workflows\main.yml.temp 更名为 main.yml~~。
+1. fork本项目，~~将 .github\workflows\main.yml.temp 更名为 main.yml~~。
    
 2. 配置帐号
    
