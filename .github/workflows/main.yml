@@ -18,7 +18,7 @@ jobs:
             password: ZJU_PASSWORD
             dingtalk_token: DINGTALK_TOKEN
             pushplus_token: ''
-            serverchan_key: 'SERVERCHAN_KEY'
+            serverchan_key: ''
           - org: user2
             username: ZJU_USERNAME
             password: ZJU_PASSWORD
@@ -31,8 +31,8 @@ jobs:
       - name: Working
         uses: Long0x0/zju-ncov-hitcarder@0.0.3
         with:
-          username: ${{ secrets[matrix.username] }}
-          password: ${{ secrets[matrix.password] }}
-          dingtalk_token: ${{ secrets[matrix.dingtalk_token] }}
-          pushplus_token: ${{ secrets[matrix.pushplus_token] }}
-          serverchan_key: ${{ secrets[matrix.serverchan_key] }}
+          username: ${{ secrets[matrix.user.username] }}
+          password: ${{ secrets[matrix.user.password] }}
+          dingtalk_token: ${{ secrets[matrix.user.dingtalk_token] }}
+          pushplus_token: ${{ secrets[matrix.user.pushplus_token] }}
+          serverchan_key: ${{ secrets[matrix.user.serverchan_key] }}
