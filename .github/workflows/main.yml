@@ -11,15 +11,17 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-          username: [ZJU_USERNAME]
-          password: [ZJU_PASSWORD]
-          dingtalk_token: [DINGTALK_TOKEN]
-          include:
+        include:
           - username: ZJU_USERNAME
             password: ZJU_PASSWORD
             dingtalk_token: DINGTALK_TOKEN
             pushplus_token: ''
-            serverchan_key: SERVERCHAN_KEY
+            serverchan_key: ''
+          - username: ZJU_USERNAME2
+            password: ZJU_PASSWORD2
+            dingtalk_token: ''
+            pushplus_token: PUSHPLUS_TOKEN
+            serverchan_key: ''
     steps:
       - name: Checkout
         uses: actions/checkout@v2
