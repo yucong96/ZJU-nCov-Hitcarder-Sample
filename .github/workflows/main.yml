@@ -17,14 +17,14 @@ jobs:
             username: ZJU_USERNAME
             password: ZJU_PASSWORD
             dingtalk_token: DINGTALK_TOKEN
-            # pushplus_token: PUSHPLUS_TOKEN
-            # serverchan_key: SERVERCHAN_KEY
+            pushplus_token: ''
+            serverchan_key: 'SERVERCHAN_KEY'
           - org: user2
             username: ZJU_USERNAME
             password: ZJU_PASSWORD
-            # dingtalk_token: DINGTALK_TOKEN
+            dingtalk_token: ''
             pushplus_token: PUSHPLUS_TOKEN
-            # serverchan_key: SERVERCHAN_KEY
+            serverchan_key: ''
     steps:
       - name: Checkout
         uses: actions/checkout@v2
