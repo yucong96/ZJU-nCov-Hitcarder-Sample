@@ -7,6 +7,20 @@ on:
 
 jobs:
   main:
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - username: ${{ secrets.ZJU_USERNAME }}
+            password: ${{ secrets.ZJU_PASSWORD }}
+            dingtalk_token: ${{ secrets.DINGTALK_TOKEN }}
+            # pushplus_token: ${{ secrets.PUSHPLUS_TOKEN }}
+            # serverchan_key: ${{ secrets.SERVERCHAN_KEY }}
+          - username: ${{ secrets.ZJU_USERNAME }}
+            password: ${{ secrets.ZJU_PASSWORD }}
+            # dingtalk_token: ${{ secrets.DINGTALK_TOKEN }}
+            pushplus_token: ${{ secrets.PUSHPLUS_TOKEN }}
+            # serverchan_key: ${{ secrets.SERVERCHAN_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,8 +28,8 @@ jobs:
       - name: Working
         uses: Long0x0/zju-ncov-hitcarder@0.0.2
         with:
-          username: ${{ secrets.ZJU_USERNAME }}
-          password: ${{ secrets.ZJU_PASSWORD }}
-          dingtalk_token: ${{ secrets.DINGTALK_TOKEN }}
-          pushplus_token: ${{ secrets.PUSHPLUS_TOKEN }}
-          serverchan_key: ${{ secrets.SERVERCHAN_KEY }}
+          username: ${{ matrix.username }}
+          password: ${{ matrix.password }}
+          dingtalk_token: ${{ matrix.dingtalk_token }}
+          pushplus_token: ${{ matrix.pushplus_token }}
+          serverchan_key: ${{ matrix.serverchan_key }}
